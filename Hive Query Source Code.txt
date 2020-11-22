@@ -1,0 +1,19 @@
+•	CREATE DATABASE stackexdb;
+
+•	CREATE EXTERNAL TABLE stackexdb.posts ( id int comment 'Id' , acceptedanswerid int comment "AcceptedAnswerId" , creationdate string comment "CreationDate" , score int comment "Score" , viewcount int comment "ViewCount" , owneruserid int comment "OwnerUserId"  , lasteditoruserid int comment "LastEditorUserid"  , lasteditdate string comment "LastEditDate" , lastactivitytime string comment "LastActivityTime" , title string comment "Title" , tags string comment "Tags" , answercount int comment "AnswerCount" , commentcount int comment "CommentCount" , favouritecount int comment "FavouriteCount") ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '/stackex';
+
+•	LOAD DATA LOCAL INPATH 'result_final.txt' INTO TABLE stackexdb.posts;
+
+•	set hive.cli.print.header=true;
+
+•	SELECT * FROM stackexdb.posts ORDER BY id DESC LIMIT 10;
+
+•	CREATE TABLE stackexdb.top10_post ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' AS SELECT DISTINCT id, score, viewcount, answercount, commentcount, favouritecount, title FROM stackexdb.posts ORDER BY score DESC LIMIT 10;
+•	SELECT * FROM stackexdb.top10_post;
+
+•	CREATE TABLE stackexdb.top10_user ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' AS SELECT DISTINCT id, score, viewcount, owneruserid, title FROM stackexdb.posts ORDER BY score DESC LIMIT 10;
+•	SELECT * FROM stackexdb.top10_user;
+
+•	CREATE TABLE stackexdb.users_hadoop ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' AS SELECT DISTINCT id, owneruserid, title, tags from stackexdb.posts where tags rlike '.*(Hadoop|hadoop).*' ;
+•	SELECT * FROM stackexdb.users_hadoop;
+

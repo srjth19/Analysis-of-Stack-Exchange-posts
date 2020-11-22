@@ -1,0 +1,9 @@
+•	hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -file /home/srijith_unni2/mapper1.py    -mapper /home/srijith_unni2/mapper1.py -file /home/srijith_unni2/reducer1.py   -reducer /home/srijith_unni2/reducer1.py -input /tfidf/Top10_User.txt -output /tfidf_output
+
+•	hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -file /home/srijith_unni2/mapper2.py    -mapper /home/srijith_unni2/mapper2.py -file /home/srijith_unni2/reducer2.py   -reducer /home/srijith_unni2/reducer2.py -input /tfidf/input2/part-00000 -input /tfidf/input2/part-00001 -output /tfidf_output2
+
+•	hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -file /home/srijith_unni2/mapper3.py    -mapper /home/srijith_unni2/mapper3.py -file /home/srijith_unni2/reducer3.py   -reducer /home/srijith_unni2/reducer3.py -input /tfidf/input3/part-00000 -input /tfidf/input3/part-00001 -output /tfidf_output3
+
+•	hadoop jar /usr/lib/hadoop-mapreduce/hadoop-streaming.jar -file /home/srijith_unni2/mapper4.py    -mapper /home/srijith_unni2/mapper4.py -numReduceTasks 0 -input /tfidf/input4/part-00000 -input /tfidf/input4/part-00001 -output /tfidf_output4
+
+•	hadoop fs -getmerge /tfidf_final/part-00000 /tfidf_final/part-00001 /tfidf_final/part-00002 /tfidf_final/part-00003 /tfidf_final/part-00004 /tfidf_final/part-00005 /tfidf_final/part-00006 /tfidf_final/part-00007 /tfidf_final/part-00008 /tfidf_final/part-00009 /tfidf_final/part-00010 /tfidf_final/part-00011 /tfidf_final/part-00012 /tfidf_final/part-00013 /tfidf_final/part-00014 /tfidf_final/part-00015 /home/srijith_unni2/final_tfidf.txt

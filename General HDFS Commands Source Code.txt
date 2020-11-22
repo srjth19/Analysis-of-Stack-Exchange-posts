@@ -1,0 +1,5 @@
+•	hadoop fs -mkdir /stackex
+•	hadoop fs -mkdir /stackex/temp
+•	hadoop fs -put /home/srijith_unni2/<respective input files> /stackex 
+•	hadoop fs -getmerge /stackex/final_result/part-m-00000 /stackex/final_result/part-m-00001/stackex/final_result/part-m-00002 /stackex/final_result/part-m-00003/stackex/final_result/part-m-00004 /home/srijith_unni2/result_final.txt
+•	hadoop fs -ls / and hadoop fs -ls <required paths to display>
