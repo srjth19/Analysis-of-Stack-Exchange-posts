@@ -29,6 +29,8 @@ reducer2.py
 
 reducer3.py
 
+Source for mapper and reducer scripts : https://github.com/devangpatel01/TF-IDF-implementation-using-map-reduce-Hadoop-python-.git
+
 ### HDFS Commands:
 General HDFS Commands Source Code.txt
 
